@@ -2,25 +2,28 @@ import { useEffect, useState } from "react";
 
 export default function App() {
   
-  const [??,??] = useState([]);
+  const [user, setUser] = useState([]);
 
   useEffect(() => { 
-
-    const  ????  = async () => {
+    const receberDadosUser = async () => {
         const resposta = await fetch('https://randomuser.me/api');
         const dados = await resposta.json();
-         //complete o código
+        setUser(dados);
     }
-    //complete o código
+    receberDadosUser();
   }, []);
 
   return (
     <>
       <h1>Usuário</h1>
       <ul>
-        {
-            //complete o código
-        }
+        {user.map(user => (
+          <li key={user.id}>
+            <img src={user.image} alt={user.name} width={100} />
+            <h2>{user.name}</h2>
+            <p>{user.description}</p>
+          </li>
+        ))}
       </ul>
     </>
   );
