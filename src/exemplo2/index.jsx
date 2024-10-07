@@ -17,11 +17,8 @@ export default function App() {
     <>
       <h1>Galeria de Fotos</h1>
       <ul>
-        {fotos.map(foto => (
-          <li key={foto.id}>
-            <h2>{foto.title}</h2>
-            <img src={foto.url} alt={foto.title} width={100} />
-          </li>
+          <li>Título: {user?.resposta[0].title}</li>
+          <img src={user?.resposta[0].thumbnailUrl} alt={user?.resposta[0].title} width={100} />
         ))}
       </ul>
     </>
